@@ -1,0 +1,22 @@
+<main>
+    <h2>방명록 리스트</h2>
+    <ul>
+      <% guestbooks.forEach(guestbook => { %>
+        <li>
+          <h3><%= guestbook.title %></h3>
+          <p><%= guestbook.content %></p>
+          <form action="/guestbook/comment" method="post">
+            <input type="hidden" name="guestbookId" value="<%= guestbook.id %>">
+            <textarea name="content" required></textarea>
+            <button type="submit">댓글 남기기</button>
+          </form>
+          <ul>
+            <% guestbook.Comments.forEach(comment => { %>
+              <li><%= comment.content %></li>
+            <% }) %>
+          </ul>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+  

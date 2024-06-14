@@ -1,0 +1,18 @@
+<main>
+    <h2>방명록 남기기</h2>
+    <form action="/guestbook/friend/<%= friend.id %>/guestbooks" method="post">
+      <label for="title">제목:</label>
+      <input type="text" name="title" id="title" required>
+      <label for="content">내용:</label>
+      <textarea name="content" id="content" required></textarea>
+      <label for="category">카테고리:</label>
+      <select name="category" id="category">
+        <option value="Free">Free</option>
+        <option value="Question">Question</option>
+        <option value="Feedback">Feedback</option>
+      </select>
+      <button type="submit">글 작성</button>
+      <button type="button" onclick="history.back()">취소</button>
+    </form>
+  </main>
+  

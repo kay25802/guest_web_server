@@ -1,0 +1,17 @@
+<main>
+    <h2>나의 방명록 리스트</h2>
+    <ul>
+      <% guestbooks.forEach(guestbook => { %>
+        <li>
+          <h3><%= guestbook.title %></h3>
+          <p><%= guestbook.content %></p>
+          <ul>
+            <% guestbook.Comments.forEach(comment => { %>
+              <li><%= comment.content %></li>
+            <% }) %>
+          </ul>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+  
