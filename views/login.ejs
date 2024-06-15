@@ -1,5 +1,6 @@
 <main>
   <div class="login-container">
+    <img src="/images/logo.png" alt="Logo" class="login-logo">
     <form action="/auth/login" method="post">
       <label for="email">이메일:</label>
       <input type="email" name="email" id="email" required>
@@ -7,6 +8,85 @@
       <input type="password" name="password" id="password" required>
       <button type="submit">로그인</button>
     </form>
-    <a href="/auth/kakao">카카오톡으로 로그인</a>
+    <a href="/auth/kakao" class="kakao-login">카카오톡으로 로그인</a>
   </div>
 </main>
+
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+  }
+
+  .login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 1750px;
+    height: 750px;
+  }
+
+  .login-logo {
+    width: 150px;
+    margin-bottom: 40px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-weight: bold;
+  
+  }
+
+  input {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 20px;
+  }
+
+  button {
+    margin-top: 40px;
+    padding: 20px 25px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 25px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .kakao-login {
+    display: block;
+    margin-top: 30px;
+    color: #3B1E1E;
+    text-decoration: none;
+    padding: 20px 25px;
+    border: 1px solid #3B1E1E;
+    border-radius: 4px;
+    font-size: 25px;
+  }
+
+  .kakao-login:hover {
+    background-color: #F7E600;
+    border-color: #F7E600;
+    color: #3B1E1E;
+  }
+</style>

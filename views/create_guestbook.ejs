@@ -27,23 +27,26 @@
   }
 
   main {
-    width: 1700px;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 0 20px;
   }
 
   h2 {
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
+    margin-top: 50px;
     color: #333;
+    font-size: 1.8em;
   }
 
   form {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 1600px;
+    width: 1750px;
+    height: 700px;
     padding: 20px;
     background: white;
     border-radius: 10px;
@@ -51,14 +54,16 @@
   }
 
   label {
-    font-size: 1.1em;
-    margin-bottom: 5px;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    margin-top: 15px;
     color: #333;
+    font-weight: bold;
   }
 
   input, textarea, select {
-    margin-bottom: 20px;
-    padding: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -66,26 +71,38 @@
     box-sizing: border-box;
   }
 
+  select {
+    font-size: 1.2em;
+  }
+
+  select option {
+    font-size: 1.2em;
+    padding: 10px;
+  }
+
   textarea {
     resize: vertical;
     min-height: 150px;
+    font-size: 20px;
+    margin-bottom: 20px;
   }
 
   .button-group {
     display: flex;
     justify-content: space-between;
+    margin-top: 60px;
   }
 
   button {
-    padding: 10px 20px;
+    padding: 15px 30px;
     background-color: #007BFF;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.2em;
     flex: 1;
-    margin: 0 5px;
+    margin: 0 100px;
   }
 
   button[type="button"] {
