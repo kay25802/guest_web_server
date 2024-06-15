@@ -3,18 +3,65 @@
 <head>
   <title>Guestbook</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #f8f9fa;
+      padding: 15px 25px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 25px;
+      font-weight: bold;
+      color: #333;
+    }
+    nav {
+      display: flex;
+      gap: 10px;
+      padding-left: 20px;
+    }
+    .nav-button {
+      padding: 15px 25px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+    .nav-button:hover {
+      background-color: #0056b3;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Guestbook Service</h1>
     <% if (user) { %>
       <nav>
-        <ul>
-          <li><a href="/guestbook/welcome">Welcome</a></li>
-          <li><a href="/guestbook/friends">친구집 방문하기</a></li>
-          <li><a href="/guestbook/my-guestbooks">나의 방명록</a></li>
-          <li><a href="/auth/logout">Logout</a></li>
-        </ul>
+        <a href="/guestbook/welcome" class="nav-button">Welcome</a>
+        <a href="/guestbook/friends" class="nav-button">친구집 방문하기</a>
+        <a href="/guestbook/my-guestbooks" class="nav-button">나의 방명록</a>
+        <a href="/auth/logout" class="nav-button">Logout</a>
       </nav>
     <% } %>
   </header>
