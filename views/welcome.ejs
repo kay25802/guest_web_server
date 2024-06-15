@@ -1,3 +1,51 @@
 <main>
-  <h2><%= email %> 님 환영합니다!</h2>
+  <div class="welcome-container">
+    <img src="/images/profile.png" alt="Profile Picture" class="profile-img">
+    <h2><%= email %> 님 환영합니다!</h2>
+    <div class="buttons">
+      <a href="/guestbook/friends" class="btn">친구집 방문하기</a>
+      <a href="/guestbook/my-guestbooks" class="btn">나의 방명록</a>
+    </div>
+  </div>
 </main>
+
+<style>
+  .welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+</style>

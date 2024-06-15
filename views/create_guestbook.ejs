@@ -1,18 +1,102 @@
 <main>
-    <h2>방명록 남기기</h2>
-    <form action="/guestbook/friend/<%= friend.id %>/guestbooks" method="post">
-      <label for="title">제목:</label>
-      <input type="text" name="title" id="title" required>
-      <label for="content">내용:</label>
-      <textarea name="content" id="content" required></textarea>
-      <label for="category">카테고리:</label>
-      <select name="category" id="category">
-        <option value="Free">Free</option>
-        <option value="Question">Question</option>
-        <option value="Feedback">Feedback</option>
-      </select>
+  <h2>방명록 남기기</h2>
+  <form action="/guestbook/friend/<%= friend.id %>/guestbooks" method="post">
+    <label for="title">제목:</label>
+    <input type="text" name="title" id="title" required>
+    <label for="content">내용:</label>
+    <textarea name="content" id="content" required></textarea>
+    <label for="category">카테고리:</label>
+    <select name="category" id="category">
+      <option value="Free">Free</option>
+      <option value="Question">Question</option>
+      <option value="Feedback">Feedback</option>
+    </select>
+    <div class="button-group">
       <button type="submit">글 작성</button>
       <button type="button" onclick="history.back()">취소</button>
-    </form>
-  </main>
-  
+    </div>
+  </form>
+</main>
+
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    width: 1700px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1600px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  input, textarea, select {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    flex: 1;
+    margin: 0 5px;
+  }
+
+  button[type="button"] {
+    background-color: #6c757d;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  button[type="button"]:hover {
+    background-color: #5a6268;
+  }
+</style>
