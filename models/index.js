@@ -15,6 +15,9 @@ Comment.belongsTo(Guestbook, { foreignKey: 'guestbookId' });
 User.hasMany(Friend, { foreignKey: 'userId' });
 Friend.belongsTo(User, { foreignKey: 'userId' });
 
+Friend.hasMany(Guestbook, { foreignKey: 'friendId' });
+Guestbook.belongsTo(Friend, { foreignKey: 'friendId' });
+
 module.exports = {
   User,
   Guestbook,

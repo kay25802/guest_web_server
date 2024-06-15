@@ -1,4 +1,4 @@
-const { sequelize, User, Friend } = require('../models');
+const { sequelize, User, Friend, Guestbook} = require('../models');
 
 const seedFriends = async () => {
   try {
@@ -8,7 +8,7 @@ const seedFriends = async () => {
 
     const user = await User.create({ email: 'user@example.com', password: 'password' });
 
-    await Friend.bulkCreate([
+    const friends = await Friend.bulkCreate([
       { name: '서현이', iconUrl: '/images/friend_1.png', userId: user.id },
       { name: '소연이', iconUrl: '/images/friend_2.png', userId: user.id },
       { name: '인영이', iconUrl: '/images/friend_3.png', userId: user.id },
@@ -16,6 +16,9 @@ const seedFriends = async () => {
       { name: '혜원이', iconUrl: '/images/friend_5.png', userId: user.id },
       { name: '성만이', iconUrl: '/images/friend_6.png', userId: user.id }
     ]);
+
+    // 친구를 위한 방명록 예시
+    await Guestbook.create({ title: 'Hello', content: 'Welcome to my guestbook!', category: 'Free', userId: user.id, friendId: friends[0].id });
 
     console.log("Test data created successfully");
   } catch (error) {
