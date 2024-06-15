@@ -1,13 +1,17 @@
+// Sequelize 모델 불러오기
 const { sequelize, User, Friend, Guestbook} = require('../models');
 
+// 친구 및 방명록 데이터 시드 함수 정의
 const seedFriends = async () => {
   try {
     // 모든 테이블을 드롭한 후 다시 생성
     await sequelize.drop();
     await sequelize.sync({ force: true });
 
+    // 사용자 생성
     const user = await User.create({ email: 'user@example.com', password: 'password' });
 
+    // 친구 목록 생성
     const friends = await Friend.bulkCreate([
       { name: '서현이', iconUrl: '/images/friend_1.png', userId: user.id },
       { name: '소연이', iconUrl: '/images/friend_2.png', userId: user.id },
@@ -29,8 +33,10 @@ const seedFriends = async () => {
   } catch (error) {
     console.error("Error creating test data: ", error);
   } finally {
+    // 데이터베이스 연결 닫기
     await sequelize.close();
   }
 };
 
+// 시드 함수 실행
 seedFriends().catch(console.error);
