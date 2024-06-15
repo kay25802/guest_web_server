@@ -30,17 +30,22 @@ router.get('/friend/:id/create', isAuthenticated, async (req, res) => {
 
 router.post('/friend/:id/guestbooks', isAuthenticated, async (req, res) => {
   const { title, content, category } = req.body;
+  const friend = await Friend.findByPk(req.params.id);
+  if (!friend) {
+    return res.status(404).send('Friend not found');
+  }
   await Guestbook.create({
     title,
     content,
     category,
-    userId: req.params.id
+    userId: req.user.id,
+    friendId: req.params.id
   });
   res.redirect(`/guestbook/friend/${req.params.id}/guestbooks`);
 });
 
 router.get('/friend/:id/guestbooks', isAuthenticated, async (req, res) => {
-  const guestbooks = await Guestbook.findAll({ where: { userId: req.params.id }, include: [Comment] });
+  const guestbooks = await Guestbook.findAll({ where: { friendId: req.params.id }, include: [Comment] });
   res.render('view_guestbooks', { guestbooks });
 });
 

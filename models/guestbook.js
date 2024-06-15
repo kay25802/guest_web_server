@@ -16,8 +16,26 @@ const Guestbook = sequelize.define('Guestbook', {
   },
   userId: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
+    references: {
+      model: 'users', // 정확한 테이블 이름 사용
+      key: 'id',
+    },
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE'
+  },
+  friendId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'friends', // 정확한 테이블 이름 사용
+      key: 'id',
+    },
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE'
   }
+}, {
+  tableName: 'guestbooks' // 정확한 테이블 이름 사용
 });
 
 module.exports = Guestbook;
